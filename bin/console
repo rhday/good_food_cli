@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # this is a comment that makes no difference to your code
-
+# another comment
 require "bundler/setup"
 require "good_food_cli"
 
