@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# this is a comment that makes no difference to your code
 
 require "bundler/setup"
 require "good_food_cli"
