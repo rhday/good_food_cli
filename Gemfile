@@ -4,3 +4,4 @@ source "https://rubygems.org"
 gemspec
 
 gem "rake", "~> 12.0"
+gem 'good_food_cli'
