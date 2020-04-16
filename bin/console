@@ -11,5 +11,8 @@ require "good_food_cli"
 # require "pry"
 # Pry.start
 
+# john added another comment for training purposes.
+
 require "irb"
 IRB.start(__FILE__)
+
