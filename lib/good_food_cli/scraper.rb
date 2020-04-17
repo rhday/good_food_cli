@@ -1,0 +1,2 @@
+class GoodFoodCli::SCRAPER
+end

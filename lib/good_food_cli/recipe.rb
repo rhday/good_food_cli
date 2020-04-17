@@ -1,0 +1,2 @@
+class GoodFoodCli::RECIPE
+end
