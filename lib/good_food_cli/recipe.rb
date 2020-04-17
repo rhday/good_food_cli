@@ -1,2 +1,2 @@
-class GoodFoodCli::RECIPE
+class GoodFoodCli::Recipe
 end
