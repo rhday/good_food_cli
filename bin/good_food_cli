@@ -1,2 +1,5 @@
 #!/usr/bin/env ruby
-puts "Hello"
+
+require_relative '../lib/good_food_cli'
+
+GoodFoodCli::CLI.new.call
