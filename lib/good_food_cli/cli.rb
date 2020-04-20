@@ -38,6 +38,9 @@ class GoodFoodCli::Cli
 
     def show_ingredients_for(chosen_recipe)
         recipe = @recipes[chosen_recipe - 1]
+        #GoodFoodCli::Ingredient.new("ing1", recipe)
+        #GoodFoodCli::Ingredient.new("ing2", recipe)
+        ingredients = recipe.ingredients
         puts "Here are the ingredients for #{recipe.name}:"
         #binding.pry
     end 
