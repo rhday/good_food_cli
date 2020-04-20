@@ -12,14 +12,16 @@ class GoodFoodCli::Cli
 
     def get_recipes
         #to be scraped
-        @recipes = ['Rec1','Rec2','Rec3','Rec4','Rec5']
+        GoodFoodCli::Recipe.new("veg")
+        GoodFoodCli::Recipe.new("more veg")
+        @recipes = GoodFoodCli::Recipe.all
     end 
 
     def list_recipes
         #list recipes
         
         @recipes.each.with_index(1) do |recipe, index|
-            puts "#{index}. #{recipe}"
+            puts "#{index}. #{recipe.name}"
         end 
         puts "Please type the number of the recipe you like the sound of:"
     end 
@@ -36,8 +38,8 @@ class GoodFoodCli::Cli
 
     def show_ingredients_for(chosen_recipe)
         recipe = @recipes[chosen_recipe - 1]
-        puts "Here are the ingredients for #{recipe}:"
-        binding.pry
+        puts "Here are the ingredients for #{recipe.name}:"
+        #binding.pry
     end 
 
 end 
