@@ -7,8 +7,8 @@ class GoodFoodCli::Recipe
 
     @@all = []
 
-    attr_accessor :name
-    attr_writer :ingredients
+    attr_accessor :name, :ingredients
+    #attr_writer :ingredients
 
     def initialize(name)
         @name = name
@@ -20,9 +20,9 @@ class GoodFoodCli::Recipe
         @@all << self
     end 
 
-    def ingredients
+    def get_ingredients
         GoodFoodCli::Scraper.scrape_ingredients(self) if @ingredients.empty?
-        @ingredients
+        #@ingredients
     end 
 
 end

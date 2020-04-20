@@ -40,8 +40,11 @@ class GoodFoodCli::Cli
         recipe = @recipes[chosen_recipe - 1]
         #GoodFoodCli::Ingredient.new("ing1", recipe)
         #GoodFoodCli::Ingredient.new("ing2", recipe)
-        ingredients = recipe.ingredients
+        recipe.get_ingredients
         puts "Here are the ingredients for #{recipe.name}:"
+        recipe.ingredients.each.with_index(1) do |ingredient, index|
+            puts "#{index}. #{ingredient.name}."
+        end
         #binding.pry
     end 
 
