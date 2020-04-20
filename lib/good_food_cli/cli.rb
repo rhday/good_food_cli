@@ -12,8 +12,8 @@ class GoodFoodCli::Cli
 
     def get_recipes
         #to be scraped
-        GoodFoodCli::Recipe.new("veg")
-        GoodFoodCli::Recipe.new("more veg")
+        #GoodFoodCli::Recipe.new("veg")
+        #GoodFoodCli::Recipe.new("more veg")
         @recipes = GoodFoodCli::Recipe.all
     end 
 

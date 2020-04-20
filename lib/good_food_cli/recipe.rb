@@ -1,6 +1,7 @@
 class GoodFoodCli::Recipe
 
     def self.all 
+        GoodFoodCli::Scraper.scrape if @@all.empty?
         @@all
     end
 
