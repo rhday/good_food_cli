@@ -23,7 +23,7 @@ class GoodFoodCli::Cli
         @recipes.each.with_index(1) do |recipe, index|
             puts "#{index}. #{recipe.name}"
         end 
-        puts "Please type the number of the recipe you like the sound of:"
+        puts "\nPlease type the number of the recipe you like the sound of:\n"
     end 
 
     def get_user_recipe
@@ -41,10 +41,11 @@ class GoodFoodCli::Cli
         #GoodFoodCli::Ingredient.new("ing1", recipe)
         #GoodFoodCli::Ingredient.new("ing2", recipe)
         recipe.get_ingredients
-        puts "Here are the ingredients for #{recipe.name}:"
+        puts "\nHere are the ingredients for #{recipe.name}:\n"
         recipe.ingredients.each.with_index(1) do |ingredient, index|
             puts "#{index}. #{ingredient.name}."
         end
+        puts "\nWould you like to see the method?\n"
         #binding.pry
     end 
 
