@@ -3,16 +3,17 @@ class GoodFoodCli::Scraper
     def self.scrape_recipe
         site = "https://www.bbcgoodfood.com/search/recipes?query=vegetarian+dishes"
         doc = Nokogiri::HTML(open(site))    
-        recipes = doc.css("h3.teaser-item__title")
+        recipes = doc.css("h3.teaser-item__title a")
         
         recipes.each do |r|
             name = r.text.strip
-            GoodFoodCli::Recipe.new(name)
+            url = r["href"]
+            GoodFoodCli::Recipe.new(name,url)
         end 
     end 
     
     def self.scrape_ingredients(recipe)
-        site = "https://www.bbcgoodfood.com/recipes/vegetarian-club"
+        site = "https://www.bbcgoodfood.com/#{recipe.url}"
         doc = Nokogiri::HTML(open(site))
         results = doc.css("ul.ingredients-list__group")
 
@@ -27,7 +28,18 @@ class GoodFoodCli::Scraper
         #GoodFoodCli::Ingredient.new("ing2", recipe)
     end 
 
-    def self.scrape_method
+    def self.scrape_method(recipe)
+        site = "https://www.bbcgoodfood.com/#{recipe.url}"
+        doc = Nokogiri::HTML(open(site))
+        results = doc.css("div.method p")
         
+        results.each do |r|
+            name = r.text.strip
+            GoodFoodCli::Method.new(name)
+        end 
+
+        #GoodFoodCli::Method.new(#results)
+        #GoodFoodCli::Method.new("met2", recipe)
     end 
+
 end

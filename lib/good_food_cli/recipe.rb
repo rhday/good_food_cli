@@ -7,13 +7,14 @@ class GoodFoodCli::Recipe
 
     @@all = []
 
-    attr_accessor :name, :ingredients
+    attr_accessor :name, :ingredients, :method, :url
     #attr_writer :ingredients
 
-    def initialize(name)
+    def initialize(name, url)
         @name = name
         @ingredients = []
-        @method = ""
+        @method = []
+        @url = url
         save
     end 
     

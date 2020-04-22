@@ -5,8 +5,8 @@ class GoodFoodCli::Cli
         get_recipes
         list_recipes
         get_user_recipe
-        #get_method_for(recipe)
-        #show_ingredients_for
+        
+        #get_ingredients
         #show_method_for
     end
 
@@ -29,6 +29,7 @@ class GoodFoodCli::Cli
     def get_user_recipe
         chosen_recipe = gets.strip.to_i
         show_ingredients_for(chosen_recipe) if valid_input?(chosen_recipe, @recipes)
+        show_method_for(chosen_recipe)
         #binding.pry
     end 
 
@@ -45,12 +46,26 @@ class GoodFoodCli::Cli
         recipe.ingredients.each.with_index(1) do |ingredient, index|
             puts "#{index}. #{ingredient.name}."
         end
-        puts "\nWould you like to see the method? Please enter 'yes' or 'no'.\n"
         #binding.pry
     end 
 
-    def get_method_for(chosen_recipe)
+    def show_method_for(chosen_recipe)
         recipe = @recipes[chosen_recipe - 1]
+
+        chosen_method = recipe.get_method 
+        puts "\nWould you like to see the method? Please enter 'Y' or 'N'.\n"
+
+        user_input = gets.strip.downcase
+
+        if user_input == "y"
+            chosen_method
+        elsif user_input == "n"
+            puts "Oh, we're sorry, here's the list again!"
+            list_recipes
+        else 
+            puts "Invalid response"
+            list_recipes
+        end 
     end 
 
 end 
