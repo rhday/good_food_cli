@@ -26,4 +26,8 @@ class GoodFoodCli::Scraper
         #GoodFoodCli::Ingredient.new("ing1", recipe)
         #GoodFoodCli::Ingredient.new("ing2", recipe)
     end 
+
+    def self.scrape_method
+        
+    end 
 end

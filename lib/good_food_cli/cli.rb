@@ -45,8 +45,12 @@ class GoodFoodCli::Cli
         recipe.ingredients.each.with_index(1) do |ingredient, index|
             puts "#{index}. #{ingredient.name}."
         end
-        puts "\nWould you like to see the method?\n"
+        puts "\nWould you like to see the method? Please enter 'yes' or 'no'.\n"
         #binding.pry
+    end 
+
+    def get_method_for(chosen_recipe)
+        recipe = @recipes[chosen_recipe - 1]
     end 
 
 end 

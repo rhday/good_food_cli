@@ -13,6 +13,7 @@ class GoodFoodCli::Recipe
     def initialize(name)
         @name = name
         @ingredients = []
+        @method = ""
         save
     end 
     
@@ -23,6 +24,10 @@ class GoodFoodCli::Recipe
     def get_ingredients
         GoodFoodCli::Scraper.scrape_ingredients(self) if @ingredients.empty?
         #@ingredients
+    end 
+
+    def get_method
+        GoodFoodCli::Scraper.scrape_method(self) if @method.empty?
     end 
 
 end
