@@ -32,12 +32,14 @@ class GoodFoodCli::Scraper
         site = "https://www.bbcgoodfood.com/#{recipe.url}"
         doc = Nokogiri::HTML(open(site))
         results = doc.css("div.method p")
-        
-        results.each do |r|
-            name = r.text.strip
-            name
-            GoodFoodCli::Method.new(name,recipe)
-        end 
+        #binding.pry 
+        met = results.text
+        GoodFoodCli::Method.new(met,recipe)
+        #results.each do |r|
+        #    name = r.text.strip
+        #    GoodFoodCli::Method.new(name,recipe)
+        #    #binding.pry
+        #end 
 
         #GoodFoodCli::Method.new(#results)
         #GoodFoodCli::Method.new("met2", recipe)
