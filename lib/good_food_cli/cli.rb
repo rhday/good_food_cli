@@ -58,6 +58,7 @@ class GoodFoodCli::Cli
         user_input = gets.strip.downcase
 
         if user_input == "y"
+            puts "Here it is:"
             chosen_method
         elsif user_input == "n"
             puts "Oh, we're sorry, here's the list again!"

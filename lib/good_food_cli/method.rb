@@ -21,6 +21,7 @@ class GoodFoodCli::Method
 
     def add_to_recipe
         @recipe.method << self 
+        #binding.pry
     end 
 
 

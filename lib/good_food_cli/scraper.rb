@@ -35,7 +35,8 @@ class GoodFoodCli::Scraper
         
         results.each do |r|
             name = r.text.strip
-            GoodFoodCli::Method.new(name)
+            name
+            GoodFoodCli::Method.new(name,recipe)
         end 
 
         #GoodFoodCli::Method.new(#results)
