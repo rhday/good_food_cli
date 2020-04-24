@@ -1,6 +1,7 @@
 class GoodFoodCli::Cli
     def call
         puts "\nWelcome to Good Food. Here are all of our vegetarian recipes:\n"
+        "\n\n"
         #binding.pry
         get_recipes
         list_recipes
@@ -21,9 +22,10 @@ class GoodFoodCli::Cli
         #list recipes
         
         @recipes.each.with_index(1) do |recipe, index|
-            puts "#{index}. #{recipe.name}"
+            puts "\n#{index}. #{recipe.name}\n"
         end 
         puts "\nPlease type the number of the recipe you like the sound of:\n"
+        "\n\n"
     end 
 
     def get_user_recipe
@@ -44,7 +46,7 @@ class GoodFoodCli::Cli
         recipe.get_ingredients
         puts "\nHere are the ingredients for #{recipe.name}:\n"
         recipe.ingredients.each.with_index(1) do |ingredient, index|
-            puts "#{index}. #{ingredient.name}."
+            puts "\n#{index}. #{ingredient.name}.\n"
         end
         #binding.pry
     end 
@@ -54,18 +56,21 @@ class GoodFoodCli::Cli
 
         chosen_method = recipe.get_method 
         puts "\nWould you like to see the method? Please enter 'Y' or 'N'.\n"
-
+        "\n\n"
         user_input = gets.strip.downcase
-
+        "\n\n"
         if user_input == "y"
-            puts "Here it is:"
-            chosen_method
+            puts "\nHere it is:\n"
+            recipe.method.each do |method|
+                puts "\n#{method.name}.\n"
+            end 
+            #chosen_method #puts "#{method.name}."
         elsif user_input == "n"
-            puts "Oh, we're sorry, here's the list again!"
-            list_recipes
+            puts "\nUh oh, that one wasn't for you!\n"
+            #list_recipes
         else 
-            puts "Invalid response"
-            list_recipes
+            puts "\nInvalid response\n"
+            #list_recipes
         end 
     end 
 
