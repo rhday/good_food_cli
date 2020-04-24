@@ -1,3 +1,5 @@
+
+
 class GoodFoodCli::Cli
     def call
         puts "\nWelcome to Good Food. Here are all of our vegetarian recipes:\n"
@@ -66,7 +68,7 @@ class GoodFoodCli::Cli
             end 
             #chosen_method #puts "#{method.name}."
         elsif user_input == "n"
-            puts "\nUh oh, that one wasn't for you!\n"
+            puts "\nUh oh, that one wasn't for you!\n" 
             #list_recipes
         else 
             puts "\nInvalid response\n"
