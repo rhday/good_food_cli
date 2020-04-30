@@ -7,7 +7,7 @@ class GoodFoodCli::Cli
         #binding.pry
         get_recipes
         list_recipes
-        get_user_recipe
+        #0get_user_recipe
         
         #get_ingredients
         #show_method_for
@@ -28,12 +28,14 @@ class GoodFoodCli::Cli
         end 
         puts "\nPlease type the number of the recipe you like the sound of:\n"
         "\n\n"
+        get_user_recipe
     end 
 
     def get_user_recipe
         chosen_recipe = gets.strip.to_i
         show_ingredients_for(chosen_recipe) if valid_input?(chosen_recipe, @recipes)
-        show_method_for(chosen_recipe)
+        show_method_for(chosen_recipe) if valid_input?(chosen_recipe, @recipes)
+        list_recipes if !valid_input?(chosen_recipe, @recipes)
         #binding.pry
     end 
 
@@ -47,7 +49,7 @@ class GoodFoodCli::Cli
         #GoodFoodCli::Ingredient.new("ing2", recipe)
         recipe.get_ingredients
         puts "\nHere are the ingredients for #{recipe.name}:\n"
-        recipe.ingredients.each.with_index(1) do |ingredient, index|
+        recipe.ingredients.map.with_index(1) do |ingredient, index|
             puts "\n#{index}. #{ingredient.name}.\n"
         end
         #binding.pry
@@ -69,10 +71,15 @@ class GoodFoodCli::Cli
             #chosen_method #puts "#{method.name}."
         elsif user_input == "n"
             puts "\nUh oh, that one wasn't for you!\n" 
-            #list_recipes
+            #get_user_recipe
+            #call
+            list_recipes
+        elsif user_input == "exit"
+            exit!
         else 
             puts "\nInvalid response\n"
-            #list_recipes
+            #call
+            list_recipes
         end 
     end 
 
